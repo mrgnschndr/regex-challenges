@@ -1,7 +1,11 @@
 // Match a Specific Word
 // Example: "I love JavaScript" -> true; "I love javascript" -> false
 const matchJavaScript = (input) => {
-  return (/JavaScript/.test(input));
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else {
+    return (/JavaScript/.test(input));
+  }
 };
 
 // Validate Email Address

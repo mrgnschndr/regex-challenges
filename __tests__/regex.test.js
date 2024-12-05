@@ -27,6 +27,10 @@ describe('Regex Challenges', () => {
         expect(matchJavaScript('I love javascript')).toBe(false); // Case-sensitivity check
     });
 
+    test('should throw an error for invalid input types', () => {
+        expect(() => matchJavaScript(123)).toThrow('Input must be a string');
+    });
+
     // test('Validate email address', () => {
     //     expect(validateEmail('test@example.com')).toBe(true);
     //     expect(validateEmail('TEST@EXAMPLE.COM')).toBe(true); // Case-insensitivity check
