@@ -2,7 +2,7 @@ const {
     matchJavaScript,
     validateEmail,
     extractNumbers,
-    // replaceWhitespace,
+    replaceWhitespace,
     // validatePhoneNumber,
     // extractHexColors,
     // validateUrl,
@@ -31,6 +31,7 @@ describe('Regex Challenges', () => {
         expect(() => matchJavaScript(123)).toThrow('Input must be a string');
         expect(() => validateEmail(123)).toThrow('Input must be a string');
         expect(() => extractNumbers(123)).toThrow('Input must be a string');
+        expect(() => replaceWhitespace(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -44,10 +45,10 @@ describe('Regex Challenges', () => {
         expect(extractNumbers('No numbers here')).toEqual([]);
     });
 
-    // test('Replace whitespace', () => {
-    //     expect(replaceWhitespace('Hello World')).toBe('Hello_World');
-    //     expect(replaceWhitespace('multiple   spaces')).toBe('multiple_spaces');
-    // });
+    test('Replace whitespace', () => {
+        expect(replaceWhitespace('Hello World')).toBe('Hello_World');
+        expect(replaceWhitespace('multiple   spaces')).toBe('multiple_spaces');
+    });
 
     // test('Validate phone number', () => {
     //     expect(validatePhoneNumber('(123) 456-7890')).toBe(true);
