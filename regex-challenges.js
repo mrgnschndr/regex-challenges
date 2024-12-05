@@ -20,7 +20,14 @@ const validateEmail = (input) => {
 
 // Extract Numbers
 // Example: "abc123def456" -> ["123", "456"]; "no numbers" -> []
-//const extractNumbers = () => {};
+const extractNumbers = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else if (!input.match(/\d+/g)) {
+    return [];
+  } else {
+    return (input.match(/\d+/g));
+}};
 
 // Replace Whitespace
 // Example: "Hello World" -> "Hello_World"; "a b c" -> "a_b_c"
@@ -93,7 +100,7 @@ const validateEmail = (input) => {
 module.exports = {
   matchJavaScript,
   validateEmail,
-  // extractNumbers,
+  extractNumbers,
   // replaceWhitespace,
   // validatePhoneNumber,
   // extractHexColors,
