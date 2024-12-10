@@ -73,7 +73,13 @@ const validateUrl = (input) => {
 
 // Validate Dates
 // Example: "12/25/2023" -> true; "25/12/2023" -> false
-//const validateDate = () => {};
+const validateDate = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else {
+    return (/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/.test(input));
+  }
+};
 
 // Count Vowels
 // Example: "hello" -> 2; "xyz" -> 0
@@ -131,7 +137,7 @@ module.exports = {
   validatePhoneNumber,
   extractHexColors,
   validateUrl,
-  // validateDate,
+  validateDate,
   // countVowels,
   // extractDomain,
   // matchHtmlTags,

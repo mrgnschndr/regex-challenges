@@ -6,7 +6,7 @@ const {
     validatePhoneNumber,
     extractHexColors,
     validateUrl,
-    // validateDate,
+    validateDate,
     // countVowels,
     // extractDomain,
     // matchHtmlTags,
@@ -35,6 +35,7 @@ describe('Regex Challenges', () => {
         expect(() => validatePhoneNumber(123)).toThrow('Input must be a string');
         expect(() => extractHexColors(123)).toThrow('Input must be a string');
         expect(() => validateUrl(123)).toThrow('Input must be a string');
+        expect(() => validateDate(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -69,11 +70,11 @@ describe('Regex Challenges', () => {
         expect(validateUrl('ftp://example.com')).toBe(false);
     });
 
-    // test('Validate dates', () => {
-    //     expect(validateDate('12/25/2023')).toBe(true);
-    //     expect(validateDate('01/01/2022')).toBe(true);
-    //     expect(validateDate('25/12/2023')).toBe(false); // Invalid format
-    // });
+    test('Validate dates', () => {
+        expect(validateDate('12/25/2023')).toBe(true);
+        expect(validateDate('01/01/2022')).toBe(true);
+        expect(validateDate('25/12/2023')).toBe(false); // Invalid format
+    });
 
     // test('Count vowels', () => {
     //     expect(countVowels('hello')).toBe(2);
