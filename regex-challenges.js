@@ -165,7 +165,13 @@ const matchUnicodeChars = (input) => {
 
 // Validate Credit Card Numbers
 // Example: "1234-5678-9012-3456" -> true; "1234-5678" -> false
-//const validateCreditCard = () => {};
+const validateCreditCard = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else {
+    return (/^\d{4}([-\s]?\d{4}){3}$/.test(input));
+  }
+};
 
 // Replace Non-Word Characters
 // Example: "hello world!" -> "hello-world-"; "Hello@World" -> "Hello-World"
@@ -199,7 +205,7 @@ module.exports = {
   matchRepeatedWords,
   validatePassword,
   matchUnicodeChars,
-  // validateCreditCard,
+  validateCreditCard,
   // replaceNonWordChars,
   // splitByDelimiters,
   // checkMultilineStart,

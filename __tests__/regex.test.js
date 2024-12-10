@@ -14,7 +14,7 @@ const {
     matchRepeatedWords,
     validatePassword,
     matchUnicodeChars,
-    // validateCreditCard,
+    validateCreditCard,
     // replaceNonWordChars,
     // splitByDelimiters,
     // checkMultilineStart,
@@ -43,6 +43,7 @@ describe('Regex Challenges', () => {
         expect(() => matchRepeatedWords(123)).toThrow('Input must be a string');
         expect(() => validatePassword(123)).toThrow('Input must be a string');
         expect(() => matchUnicodeChars(123)).toThrow('Input must be a string');
+        expect(() => validateCreditCard(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -122,12 +123,12 @@ describe('Regex Challenges', () => {
         expect(matchUnicodeChars('abcABC')).toEqual(['a', 'b', 'c', 'A', 'B', 'C']);
     });
 
-    // test('Validate credit card numbers', () => {
-    //     expect(validateCreditCard('1234-5678-9101-1121')).toBe(true);
-    //     expect(validateCreditCard('1234 5678 9101 1121')).toBe(true);
-    //     expect(validateCreditCard('1234567891011121')).toBe(true);
-    //     expect(validateCreditCard('12345-6789-1011-121')).toBe(false);
-    // });
+    test('Validate credit card numbers', () => {
+        expect(validateCreditCard('1234-5678-9101-1121')).toBe(true);
+        expect(validateCreditCard('1234 5678 9101 1121')).toBe(true);
+        expect(validateCreditCard('1234567891011121')).toBe(true);
+        expect(validateCreditCard('12345-6789-1011-121')).toBe(false);
+    });
 
     // test('Replace non-word characters', () => {
     //     expect(replaceNonWordChars('hello world!')).toBe('hello-world-');
