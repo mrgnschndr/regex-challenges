@@ -8,7 +8,7 @@ const {
     validateUrl,
     validateDate,
     countVowels,
-    // extractDomain,
+    extractDomain,
     // matchHtmlTags,
     // findCapitalizedWords,
     // matchRepeatedWords,
@@ -37,6 +37,7 @@ describe('Regex Challenges', () => {
         expect(() => validateUrl(123)).toThrow('Input must be a string');
         expect(() => validateDate(123)).toThrow('Input must be a string');
         expect(() => countVowels(123)).toThrow('Input must be a string');
+        expect(() => extractDomain(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -83,11 +84,11 @@ describe('Regex Challenges', () => {
         expect(countVowels('xyz')).toBe(0);
     });
 
-    // test('Extract domain names', () => {
-    //     expect(extractDomain('test@example.com')).toBe('example.com');
-    //     expect(extractDomain('TEST@EXAMPLE.COM')).toBe('EXAMPLE.COM'); // Ensure case preservation
-    //     expect(extractDomain('invalid')).toBe(null);
-    // });
+    test('Extract domain names', () => {
+        expect(extractDomain('test@example.com')).toBe('example.com');
+        expect(extractDomain('TEST@EXAMPLE.COM')).toBe('EXAMPLE.COM'); // Ensure case preservation
+        expect(extractDomain('invalid')).toBe(null);
+    });
 
     // test('Match HTML tags', () => {
     //     expect(matchHtmlTags('<div><p>Hello</p></div>')).toEqual(['<div>', '<p>', '</p>', '</div>']);
