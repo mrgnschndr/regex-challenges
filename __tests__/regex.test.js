@@ -4,7 +4,7 @@ const {
     extractNumbers,
     replaceWhitespace,
     validatePhoneNumber,
-    // extractHexColors,
+    extractHexColors,
     // validateUrl,
     // validateDate,
     // countVowels,
@@ -33,6 +33,7 @@ describe('Regex Challenges', () => {
         expect(() => extractNumbers(123)).toThrow('Input must be a string');
         expect(() => replaceWhitespace(123)).toThrow('Input must be a string');
         expect(() => validatePhoneNumber(123)).toThrow('Input must be a string');
+        expect(() => extractHexColors(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -56,10 +57,10 @@ describe('Regex Challenges', () => {
         expect(validatePhoneNumber('(123) 456-7890 ')).toBe(false); // Extra whitespace should fail
     });
 
-    // test('Extract hexadecimal colors', () => {
-    //     expect(extractHexColors('Colors: #FF5733, #fff, and #123abc')).toEqual(['#FF5733', '#fff', '#123abc']);
-    //     expect(extractHexColors('no colors')).toEqual([]);
-    // });
+    test('Extract hexadecimal colors', () => {
+        expect(extractHexColors('Colors: #FF5733, #fff, and #123abc')).toEqual(['#FF5733', '#fff', '#123abc']);
+        expect(extractHexColors('no colors')).toEqual([]);
+    });
 
     // test('Validate URL', () => {
     //     expect(validateUrl('https://example.com')).toBe(true);
