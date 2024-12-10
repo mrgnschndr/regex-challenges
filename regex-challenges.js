@@ -97,7 +97,15 @@ const countVowels = (input) => {
 
 // Extract Domain Names
 // Example: "test@example.com" -> "example.com"; "invalid" -> null
-//const extractDomain = () => {};
+const extractDomain = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else if ((input.match(/(?<=@)[a-zA-Z0-9.-]+/)) === null) {
+    return null;
+  } else { 
+    return ((input.match(/(?<=@)[a-zA-Z0-9.-]+/))[0]);
+  }
+};
 
 // Match HTML Tags
 // Example: "<div><p>Hello</p></div>" -> ["<div>", "<p>", "</p>", "</div>"]; "text" -> []
@@ -149,7 +157,7 @@ module.exports = {
   validateUrl,
   validateDate,
   countVowels,
-  // extractDomain,
+  extractDomain,
   // matchHtmlTags,
   // findCapitalizedWords,
   // matchRepeatedWords,
