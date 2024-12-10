@@ -109,7 +109,15 @@ const extractDomain = (input) => {
 
 // Match HTML Tags
 // Example: "<div><p>Hello</p></div>" -> ["<div>", "<p>", "</p>", "</div>"]; "text" -> []
-//const matchHtmlTags = () => {};
+const matchHtmlTags = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else if ((input.match(/<\/?([a-zA-Z][a-zA-Z0-9-]*)[^>]*>/g)) == null) {
+    return ([]);
+  } else {
+    return (input.match(/<\/?([a-zA-Z][a-zA-Z0-9-]*)[^>]*>/g));
+  }
+};
 
 // Find Capitalized Words
 // Example: "Hello World" -> ["Hello", "World"]; "no caps" -> []
@@ -158,7 +166,7 @@ module.exports = {
   validateDate,
   countVowels,
   extractDomain,
-  // matchHtmlTags,
+  matchHtmlTags,
   // findCapitalizedWords,
   // matchRepeatedWords,
   // validatePassword,

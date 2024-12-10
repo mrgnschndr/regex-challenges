@@ -9,7 +9,7 @@ const {
     validateDate,
     countVowels,
     extractDomain,
-    // matchHtmlTags,
+    matchHtmlTags,
     // findCapitalizedWords,
     // matchRepeatedWords,
     // validatePassword,
@@ -38,6 +38,7 @@ describe('Regex Challenges', () => {
         expect(() => validateDate(123)).toThrow('Input must be a string');
         expect(() => countVowels(123)).toThrow('Input must be a string');
         expect(() => extractDomain(123)).toThrow('Input must be a string');
+        expect(() => matchHtmlTags(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -90,10 +91,10 @@ describe('Regex Challenges', () => {
         expect(extractDomain('invalid')).toBe(null);
     });
 
-    // test('Match HTML tags', () => {
-    //     expect(matchHtmlTags('<div><p>Hello</p></div>')).toEqual(['<div>', '<p>', '</p>', '</div>']);
-    //     expect(matchHtmlTags('No tags here')).toEqual([]);
-    // });
+    test('Match HTML tags', () => {
+        expect(matchHtmlTags('<div><p>Hello</p></div>')).toEqual(['<div>', '<p>', '</p>', '</div>']);
+        expect(matchHtmlTags('No tags here')).toEqual([]);
+    });
 
     // test('Find capitalized words', () => {
     //     expect(findCapitalizedWords('Hello World')).toEqual(['Hello', 'World']);
