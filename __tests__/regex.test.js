@@ -11,7 +11,7 @@ const {
     extractDomain,
     matchHtmlTags,
     findCapitalizedWords,
-    // matchRepeatedWords,
+    matchRepeatedWords,
     // validatePassword,
     // matchUnicodeChars,
     // validateCreditCard,
@@ -40,6 +40,7 @@ describe('Regex Challenges', () => {
         expect(() => extractDomain(123)).toThrow('Input must be a string');
         expect(() => matchHtmlTags(123)).toThrow('Input must be a string');
         expect(() => findCapitalizedWords(123)).toThrow('Input must be a string');
+        expect(() => matchRepeatedWords(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -103,10 +104,10 @@ describe('Regex Challenges', () => {
         expect(findCapitalizedWords('no caps')).toEqual([]);
     });
 
-    // test('Match repeated words', () => {
-    //     expect(matchRepeatedWords('This is is a test Test')).toEqual(['is is']); // Case-sensitivity check
-    //     expect(matchRepeatedWords('No repeats here')).toEqual([]);
-    // });
+    test('Match repeated words', () => {
+        expect(matchRepeatedWords('This is is a test Test')).toEqual(['is is']); // Case-sensitivity check
+        expect(matchRepeatedWords('No repeats here')).toEqual([]);
+    });
 
     // test('Validate password', () => {
     //     expect(validatePassword('Password1')).toBe(true);
