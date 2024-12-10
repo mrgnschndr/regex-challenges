@@ -63,7 +63,13 @@ const extractHexColors = (input) => {
 
 // Validate URL
 // Example: "https://example.com" -> true; "ftp://example.com" -> false
-//const validateUrl = () => {};
+const validateUrl = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else {
+    return (/https:\/\/[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}/.test(input));
+  }
+};
 
 // Validate Dates
 // Example: "12/25/2023" -> true; "25/12/2023" -> false
@@ -124,7 +130,7 @@ module.exports = {
   replaceWhitespace,
   validatePhoneNumber,
   extractHexColors,
-  // validateUrl,
+  validateUrl,
   // validateDate,
   // countVowels,
   // extractDomain,
