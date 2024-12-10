@@ -7,7 +7,7 @@ const {
     extractHexColors,
     validateUrl,
     validateDate,
-    // countVowels,
+    countVowels,
     // extractDomain,
     // matchHtmlTags,
     // findCapitalizedWords,
@@ -36,6 +36,7 @@ describe('Regex Challenges', () => {
         expect(() => extractHexColors(123)).toThrow('Input must be a string');
         expect(() => validateUrl(123)).toThrow('Input must be a string');
         expect(() => validateDate(123)).toThrow('Input must be a string');
+        expect(() => countVowels(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -76,11 +77,11 @@ describe('Regex Challenges', () => {
         expect(validateDate('25/12/2023')).toBe(false); // Invalid format
     });
 
-    // test('Count vowels', () => {
-    //     expect(countVowels('hello')).toBe(2);
-    //     expect(countVowels('HELLO')).toBe(2); // Case-insensitivity check
-    //     expect(countVowels('xyz')).toBe(0);
-    // });
+    test('Count vowels', () => {
+        expect(countVowels('hello')).toBe(2);
+        expect(countVowels('HELLO')).toBe(2); // Case-insensitivity check
+        expect(countVowels('xyz')).toBe(0);
+    });
 
     // test('Extract domain names', () => {
     //     expect(extractDomain('test@example.com')).toBe('example.com');
