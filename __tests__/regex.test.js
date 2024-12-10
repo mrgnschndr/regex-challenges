@@ -13,8 +13,7 @@ const {
     findCapitalizedWords,
     matchRepeatedWords,
     validatePassword,
-    // validatePassword,
-    // matchUnicodeChars,
+    matchUnicodeChars,
     // validateCreditCard,
     // replaceNonWordChars,
     // splitByDelimiters,
@@ -43,6 +42,7 @@ describe('Regex Challenges', () => {
         expect(() => findCapitalizedWords(123)).toThrow('Input must be a string');
         expect(() => matchRepeatedWords(123)).toThrow('Input must be a string');
         expect(() => validatePassword(123)).toThrow('Input must be a string');
+        expect(() => matchUnicodeChars(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -117,10 +117,10 @@ describe('Regex Challenges', () => {
         expect(validatePassword('PASSWORD1')).toBe(false); // Must include lowercase
     });
 
-    // test('Match Unicode characters', () => {
-    //     expect(matchUnicodeChars('😀')).toEqual(['😀']);
-    //     expect(matchUnicodeChars('abcABC')).toEqual(['a', 'b', 'c', 'A', 'B', 'C']);
-    // });
+    test('Match Unicode characters', () => {
+        expect(matchUnicodeChars('😀')).toEqual(['😀']);
+        expect(matchUnicodeChars('abcABC')).toEqual(['a', 'b', 'c', 'A', 'B', 'C']);
+    });
 
     // test('Validate credit card numbers', () => {
     //     expect(validateCreditCard('1234-5678-9101-1121')).toBe(true);
