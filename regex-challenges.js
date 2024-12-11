@@ -199,7 +199,13 @@ const splitByDelimiters = (input) => {
 
 // Validate U.S. Street Address
 // Example: "123 N Olive Lane\nCity, ST 12345" -> true; "123 Olive Lane, City ST 12345" -> false
-//const validateUSAddress = () => {};
+const validateUSAddress = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else {
+    return (/^\d+\s([NSEW]\s)?[A-Za-z0-9\s.-]+(?:\n[A-Za-z\s]+,\s[A-Z]{2}\s\d{5})$/.test(input));
+  }
+};
 
 module.exports = {
   matchJavaScript,
@@ -221,5 +227,5 @@ module.exports = {
   replaceNonWordChars,
   splitByDelimiters,
   // checkMultilineStart,
-  // validateUSAddress,
+  validateUSAddress,
 };
