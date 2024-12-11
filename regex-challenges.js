@@ -185,7 +185,13 @@ const replaceNonWordChars = (input) => {
 
 // Split by Multiple Delimiters
 // Example: "a,b|c;d" -> ["a", "b", "c", "d"]; "one|two;three,four" -> ["one", "two", "three", "four"]
-//const splitByDelimiters = () => {};
+const splitByDelimiters = (input) => {
+  if (typeof(input) !== 'string') {
+    throw new Error('Input must be a string');
+  } else {
+    return (input.split(/[,|;]/g));
+  }
+};
 
 // Check Multiline Start
 // Example: "hello\nworld\nhello" -> ["hello", "hello"]; "Hello\nworld" -> []
@@ -213,7 +219,7 @@ module.exports = {
   matchUnicodeChars,
   validateCreditCard,
   replaceNonWordChars,
-  // splitByDelimiters,
+  splitByDelimiters,
   // checkMultilineStart,
   // validateUSAddress,
 };

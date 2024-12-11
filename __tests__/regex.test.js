@@ -16,7 +16,7 @@ const {
     matchUnicodeChars,
     validateCreditCard,
     replaceNonWordChars,
-    // splitByDelimiters,
+    splitByDelimiters,
     // checkMultilineStart,
     // validateUSAddress,
 } = require('../regex-challenges');
@@ -45,6 +45,7 @@ describe('Regex Challenges', () => {
         expect(() => matchUnicodeChars(123)).toThrow('Input must be a string');
         expect(() => validateCreditCard(123)).toThrow('Input must be a string');
         expect(() => replaceNonWordChars(123)).toThrow('Input must be a string');
+        expect(() => splitByDelimiters(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -136,10 +137,10 @@ describe('Regex Challenges', () => {
         expect(replaceNonWordChars('Hello@World')).toBe('Hello-World');
     });
 
-    // test('Split by multiple delimiters', () => {
-    //     expect(splitByDelimiters('a,b|c;d')).toEqual(['a', 'b', 'c', 'd']);
-    //     expect(splitByDelimiters('one|two,three;four')).toEqual(['one', 'two', 'three', 'four']);
-    // });
+    test('Split by multiple delimiters', () => {
+        expect(splitByDelimiters('a,b|c;d')).toEqual(['a', 'b', 'c', 'd']);
+        expect(splitByDelimiters('one|two,three;four')).toEqual(['one', 'two', 'three', 'four']);
+    });
 
     // test('Check multiline start', () => {
     //     expect(checkMultilineStart('hello\nworld\nhello')).toEqual(['hello', 'hello']);
