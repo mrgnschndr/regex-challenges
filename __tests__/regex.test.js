@@ -15,7 +15,7 @@ const {
     validatePassword,
     matchUnicodeChars,
     validateCreditCard,
-    // replaceNonWordChars,
+    replaceNonWordChars,
     // splitByDelimiters,
     // checkMultilineStart,
     // validateUSAddress,
@@ -44,6 +44,7 @@ describe('Regex Challenges', () => {
         expect(() => validatePassword(123)).toThrow('Input must be a string');
         expect(() => matchUnicodeChars(123)).toThrow('Input must be a string');
         expect(() => validateCreditCard(123)).toThrow('Input must be a string');
+        expect(() => replaceNonWordChars(123)).toThrow('Input must be a string');
     });
 
     test('Validate email address', () => {
@@ -130,10 +131,10 @@ describe('Regex Challenges', () => {
         expect(validateCreditCard('12345-6789-1011-121')).toBe(false);
     });
 
-    // test('Replace non-word characters', () => {
-    //     expect(replaceNonWordChars('hello world!')).toBe('hello-world-');
-    //     expect(replaceNonWordChars('Hello@World')).toBe('Hello-World');
-    // });
+    test('Replace non-word characters', () => {
+        expect(replaceNonWordChars('hello world!')).toBe('hello-world-');
+        expect(replaceNonWordChars('Hello@World')).toBe('Hello-World');
+    });
 
     // test('Split by multiple delimiters', () => {
     //     expect(splitByDelimiters('a,b|c;d')).toEqual(['a', 'b', 'c', 'd']);
